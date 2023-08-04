@@ -4,7 +4,8 @@ const dbConnection = require('./config/dbConnection.js')
 const router = require('./routes/routes.js')
 
 const app = express()
-app.use("/", router)
+app.use(express.json())
 dbConnection()
+app.use("/", router)
 
 module.exports = app
