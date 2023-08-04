@@ -12,7 +12,7 @@ const signup = async (req, res)=>{
             throw new Error(`Password and confirm Password didn't match`)
         }
         
-        const isValidEmail = emailValidator.validate(email)
+        let isValidEmail = emailValidator.validate(email)
 
         if(!isValidEmail){
             throw new Error(`Please enter the correct email Id`)
@@ -30,8 +30,7 @@ const signup = async (req, res)=>{
             success: true,
             data: result
         })
-
-        
+     
 
     } catch (error) {
         res.status(400).json({
