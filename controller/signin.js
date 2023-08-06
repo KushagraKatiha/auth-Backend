@@ -15,7 +15,7 @@ const signin = async (req, res)=>{
         throw new Error('Email or Password didn\'t match')
     }
 
-    const token = isUserExists.jwtToken();
+    const token = isUserExists.jwtToken()
     isUserExists.password = undefined;
 
     const cookieOptions = {

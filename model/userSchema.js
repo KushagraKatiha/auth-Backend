@@ -28,10 +28,20 @@ user.methods = {
     jwtToken(){
         return JWT.sign(
             {id: this._id, email: this.email},
-            process.env.SECRET,
+            process.env.SECTRET,
             {expiresIn: '24h'}
         )
     }
 }
+
+// user.methods = {
+//     jwtToken(){
+//         return JWT.sign(
+//             {id: this._id, email: this.email},
+//             process.env.SECRET,
+//             {expiresIn: '24h'}
+//         )
+//     }
+// }
 
 module.exports = mongoose.model("userModel", user)
