@@ -15,8 +15,18 @@ const signin = async (req, res)=>{
         throw new Error('Email or Password didn\'t match')
     }
 
+    // const token = isUserExists.jwtToken()
+    // isUserExists.password = undefined;
+
+    // const cookieOptions = {
+    //     maxAge: 24*60*60*1000,
+    //     httpOnly: true
+    // }
+
+    // res.cookie('token', token, cookieOptions)
+
     const token = isUserExists.jwtToken()
-    isUserExists.password = undefined;
+    isUserExists.password = undefined
 
     const cookieOptions = {
         maxAge: 24*60*60*1000,
@@ -24,6 +34,7 @@ const signin = async (req, res)=>{
     }
 
     res.cookie('token', token, cookieOptions)
+
 
     res.status(200).json({
         success: true,

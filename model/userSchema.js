@@ -26,22 +26,12 @@ const user = new mongoose.Schema({
 
 user.methods = {
     jwtToken(){
-        return JWT.sign(
-            {id: this._id, email: this.email},
-            process.env.SECTRET,
+        return  JWT.sign(
+            {id: this._id, email: this.email },
+            process.env.SECRET,
             {expiresIn: '24h'}
         )
     }
 }
-
-// user.methods = {
-//     jwtToken(){
-//         return JWT.sign(
-//             {id: this._id, email: this.email},
-//             process.env.SECRET,
-//             {expiresIn: '24h'}
-//         )
-//     }
-// }
 
 module.exports = mongoose.model("userModel", user)
