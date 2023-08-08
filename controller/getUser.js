@@ -14,7 +14,7 @@ const getUser = async (req, res)=>{
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: e.message
+            message: error.message
         })
     }
 }
